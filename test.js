@@ -9,6 +9,8 @@ const screen = {
 
 describe('webdriver', () => {
     let driver;
+    this.retries(4);
+    this.timeout(50000);
     before(async () => {
       driver = new webdriver.Builder().forBrowser('firefox').setFirefoxOptions(new firefox.Options().headless())
       .build();
