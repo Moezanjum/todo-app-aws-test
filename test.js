@@ -1,5 +1,5 @@
 const webdriver = require('selenium-webdriver');
-const firefox    = require('selenium-webdriver/firefox');
+const chrome    = require('selenium-webdriver/chrome');
 const { By } = require('selenium-webdriver');
 const assert = require('assert');
 const screen = {
@@ -10,7 +10,7 @@ const screen = {
 describe('webdriver', () => {
     let driver;
     before(async () => {
-      driver = new webdriver.Builder().forBrowser('firefox').setFirefoxOptions(new firefox.Options().headless())
+      driver = new webdriver.Builder().forBrowser('chrome').setChromeOptions(new chrome.Options().headless())
       .build();
       console.log('Loading Webpage');
       await driver.get(`http://localhost:3000`);
@@ -20,15 +20,15 @@ describe('webdriver', () => {
         console.log("\nTests Completed!!\n");
         await setTimeout(function() {
             driver.quit();
-          }, 20000);
-    }, 40000);
+          }, 3000);
+    }, 4000);
   
     it('test App loads', async () => {
       console.log("Testing If app loads");
       const title = await driver.getTitle()
       console.log(title)
       assert.equal(title, "Node To Do Application");
-    }, 20000);
+    }, 2000);
 
     it('Clear previous tasks', async () => {
       await driver.findElement(By.css("#btnClr")).click();    
