@@ -1,5 +1,5 @@
 const webdriver = require('selenium-webdriver');
-const chrome    = require('selenium-webdriver/chrome');
+const firefox    = require('selenium-webdriver/firefox');
 const { By } = require('selenium-webdriver');
 const assert = require('assert');
 const screen = {
@@ -10,11 +10,11 @@ const screen = {
 describe('webdriver', () => {
     let driver;
     before(async () => {
-      driver = new webdriver.Builder().forBrowser('firefox').setChromeOptions(new chrome.Options().headless())
+      driver = new webdriver.Builder().forBrowser('firefox').setChromeOptions(new firefox.Options().headless())
       .build();
-     
-      // await driver.get(`http://localhost:3000`);
-    }, 30000);
+      console.log('Loading Webpage');
+      await driver.get(`http://localhost:3000`);
+    }, 3000);
   
     after(async () => {
         console.log("\nTests Completed!!\n");
