@@ -13,17 +13,18 @@ describe('webdriver', () => {
       driver = new webdriver.Builder().forBrowser('chrome').setChromeOptions(new chrome.Options().headless())
       .build();
      
-      await driver.get(`http://localhost:3000`);
+      // await driver.get(`http://localhost:3000`);
     }, 30000);
   
     after(async () => {
         console.log("\nTests Completed!!\n");
         await setTimeout(function() {
             driver.quit();
-          }, 2000);
+          }, 20000);
     }, 40000);
   
     it('test App loads', async () => {
+      console.log("Testing If app loads");
       const title = await driver.getTitle()
       console.log(title)
       assert.equal(title, "Node To Do Application");
