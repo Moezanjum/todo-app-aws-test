@@ -15,7 +15,7 @@
     <div class="container outer">
         <form id="form" class="col-lg-6 col-8 mx-auto" action="/newtodo" method="POST">
             <div class="input-group">
-                <input id="input" class="form-control inpt" placeholder="Enter todo list item" value="" name="task">
+                <input id="input" class="form-control inpt add-task-input" placeholder="Enter todo list item" value="" name="task">
                 <span>
                     <button id="btn" type="submit" class="btn add-btn">Add</button>
                 </span>
@@ -27,11 +27,11 @@
                 <!-- <li><input type="checkbox" class="checkbox">this is a todo item </li>
                 <li><input type="checkbox" class="checkbox">this is a todo item </li> -->
                 <% for(var i=0; i<todoList.length; i++){ %>
-                    <li>
+                    <li class="added-tasks">
                         <input type="checkbox" class="checkbox">
-                       <%= todoList[i].name %>
+                       <p class="added-tasks-input"><%= todoList[i].name %></p>
                        
-                        <a href="/delete/<%= todoList[i]._id %> " class="del"> 
+                        <a class="remove-task" href="/delete/<%= todoList[i]._id %> " class="del"> 
                             <i class="fa fa-trash" aria-hidden="true" style="font-size:20px;color:black;"></i>
                         </a>
                        
