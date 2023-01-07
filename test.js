@@ -10,7 +10,7 @@ const screen = {
 describe('webdriver', () => {
     let driver;
     before(async () => {
-      driver = new webdriver.Builder().forBrowser('firefox').setChromeOptions(new firefox.Options().headless())
+      driver = new webdriver.Builder().forBrowser('firefox').setFirefoxOptions(new firefox.Options().headless())
       .build();
       console.log('Loading Webpage');
       await driver.get(`http://localhost:3000`);
