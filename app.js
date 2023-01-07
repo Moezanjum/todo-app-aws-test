@@ -8,7 +8,7 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 //db connection with mongoose(mongodb)
-mongoose.connect("mongodb://localhost/todo", {
+mongoose.connect("mongodb+srv://nodeUser:nodeUser@cluster0.yrlhy.mongodb.net/?retryWrites=true", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
