@@ -10,7 +10,7 @@ const screen = {
 describe('webdriver', () => {
     let driver;
     before(async () => {
-      driver = new webdriver.Builder().forBrowser('chrome').setChromeOptions(new chrome.Options().headless())
+      driver = new webdriver.Builder().forBrowser('firefox').setChromeOptions(new chrome.Options().headless())
       .build();
      
       // await driver.get(`http://localhost:3000`);
