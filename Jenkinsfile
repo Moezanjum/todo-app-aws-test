@@ -22,7 +22,9 @@ pipeline {
                 sh 'chmod +x geckodriver'
                 sh 'mv geckodriver /usr/local/bin/'
                 sleep(time:5,unit:"SECONDS")
-                sh 'npm test'
+                sh 'pm2 log --nostream npm'
+                sh 'wget --spider http://localhost:3000'
+                sh 'node test.js'
             }
         }
     }
